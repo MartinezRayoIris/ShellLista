@@ -1,0 +1,66 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shelllista;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author marti
+ */
+public class ShellLista {
+ public static void  shellSort( List <Integer> b)
+    { 
+for(int k= b.size()/2; k>0; k=k==2?1:(int)( k/2.2))
+{ 
+      for(int i=k;i<b.size(); i++ )
+      { 
+        int tmp = b.get(i); 
+        int j; 
+        for(j=i; j>=k&&tmp<b.get(j-k); j-=k)
+        { 
+         // b[j]=b[j-k]; 
+          b.set(j,j-k);
+        } 
+        //b[j]=tmp; 
+        b.set(j, tmp);
+     } 
+} 
+
+    } 
+   public static void main(String args[]){ 
+       
+       Scanner n= new Scanner(System.in);
+       System.out.println("Cuantos numeros desea ingresar");
+       int k=n.nextInt();
+//int a[]={321, 6, 1, 234, 213, 4, 5, 123}; //Este es el array de elementos que vamos a ordenar 
+List<Integer> b= new ArrayList<Integer>();  
+int[] a = new int[k];
+  for(int i=0;i<k;i++){
+  System.out.println("Ingrese sus datos");
+       int p=n.nextInt();
+       b.add(i, p);
+  }
+    System.out.println("Antes del ordenamiento");
+for(int li: b)
+{
+    System.out.println(li+" ");
+    
+}
+
+shellSort(b); //llamada al metodo shellSort 
+    System.out.println("\n");
+System.out.println("Ordenado por el método Shell");
+for(int li: b)
+{
+    System.out.println(li+" ");
+    
+}//fin del for 
+}//fin del main 
+    
+}
